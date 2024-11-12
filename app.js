@@ -32,7 +32,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/user-app/browser', 'index.html'));
 });
 
-
+  
 app.listen(PORT, () => {
   console.log(`App is running on`, PORT);
 });
