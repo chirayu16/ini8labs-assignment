@@ -1,1 +1,40 @@
-<p>user-form works!</p>
+<!-- user-form.component.html -->
+<div class="dialog-header">
+    <h2 mat-dialog-title>{{isEditMode ? 'Edit' : 'Add New'}} User</h2>
+    <button mat-icon-button (click)="closeDialog()" [disabled]="isSubmitting()">
+      <mat-icon>close</mat-icon>
+    </button>
+</div>
+  
+<mat-dialog-content>
+    <div class="container">
+        <mat-form-field>
+            <mat-label>Enter your name</mat-label>
+            <input matInput placeholder="John Doe" [formControl]="name" (blur)="updateNameErrorMessage()" required />
+            <mat-error *ngIf="name.invalid && name.touched">{{nameErrorMessage()}}</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
+            <mat-error *ngIf="email.invalid && email.touched">{{errorMessage()}}</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [formControl]="dob" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+  
+<mat-dialog-actions align="end">
+    <button mat-button (click)="closeDialog()" [disabled]="isSubmitting()">Cancel</button>
+    <button mat-raised-button color="primary" 
+            (click)="submitForm()" 
+            [disabled]="email.invalid || name.invalid || dob.invalid || isSubmitting()">
+        {{ isSubmitting() ? 'Submitting...' : (isEditMode ? 'Update' : 'Submit') }}
+    </button>
+</mat-dialog-actions>

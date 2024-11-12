@@ -7,7 +7,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserFormComponent, UserListComponent,],
+  imports: [RouterOutlet, UserFormComponent, UserListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,0 +1,30 @@
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    
+    h2 {
+      margin: 0;
+    }
+    
+    .close-button {
+      margin-right: -12px;
+    }
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  
+  mat-dialog-actions {
+    padding: 16px 24px;
+    margin-bottom: 0;
+  }
