@@ -4,12 +4,12 @@ const userController = require("../controllers/usercontroller");
 const bodyParser = require("body-parser");
 var jsonParser = bodyParser.json()
 
-router.post("/register", jsonParser, userController.registerUsers);
+router.post("", jsonParser, userController.registerUsers);
 
-router.put("/update/:id", jsonParser, userController.updateUser);
+router.put("/:id", jsonParser, userController.updateUser);
 
-router.delete("/delete/:id", userController.deleteUser);
+router.delete("/:id", userController.deleteUser);
 
-router.get("/users", userController.getAllUsers);
+router.get("", userController.getAllUsers);
 
 module.exports = router;
